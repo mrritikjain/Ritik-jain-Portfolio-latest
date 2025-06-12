@@ -1,0 +1,528 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Grechen+Fuemen&family=Montserrat+Alternates:wght@400;500;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  /* 
+         Change favorite color:
+
+         Default (Red): hsl(358, 80%, 49%)
+         Purple: hsl(265, 80%, 49%) - Blue: hsl(220, 80%, 49%)
+         Pink: hsl(330, 80%, 49%) - Green: hsl(162, 70%, 40%)
+         Orange: hsl(14, 80%, 49%)
+
+         For more colors visit: https://htmlcolorcodes.com/
+         -> Choose any color 
+         -> Copy the color mode (HSL)
+  */
+  --hue: 358;
+  --first-color: #8b181a;
+  --first-color-alt: #ebacd4;
+  --white-color: hsl(0, 0%, 98%);
+  --black-color: hsl(0, 0%, 1%);
+  --text-color: hsl(var(--hue), 2%, 66%);
+  --body-color: hsl(var(--hue), 100%, 1%);
+  --container-color: hsl(var(--hue), 2%, 10%);
+  --conic-gradient: conic-gradient(
+    from 150deg at 50% 45%,
+    hsl(var(--hue), 80%, 20%) 0deg,
+    hsl(var(--hue), 80%, 48%) 140deg,
+    hsl(var(--hue), 80%, 20%) 360deg
+  );
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Montserrat Alternates", sans-serif;
+  --second-font: "Grechen Fuemen", cursive;
+  --biggest-font-size: 2.5rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1168px) {
+  :root {
+    --biggest-font-size: 3.5rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+input,
+textarea,
+button {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
+
+body {
+  background-color: var(--body-color);
+  color: var(--white-color);
+}
+
+input,
+button,
+textarea {
+  border: none;
+  outline: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--white-color);
+  font-weight: var(--font-semi-bold);
+}
+
+ul {
+  list-style: none;
+}
+li::marker {
+  font-size: 0px;
+}
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 1168px;
+  margin-inline: 4rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.section {
+  padding-block: 2rem 3rem;
+}
+.sub-container {
+  background-color: var(--container-color);
+  border-radius: 30px;
+}
+.section__title {
+  font-size: var(--h2-font-size);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.main {
+  overflow: hidden;
+}
+p {
+  margin-top: 20px;
+  font-size: var(--smaller-font-size);
+  line-height: 20px;
+  margin-bottom: 30px;
+}
+/*=============== NAV ===============*/
+.nav {
+  max-width: 40px;
+  width: 100%;
+  background: #22131493;
+  position: fixed;
+  right: 3rem;
+  padding: 30px 30px;
+  top: 25vh;
+  border-radius: 40px;
+  box-shadow: 0 0px 8px 2px #8b181aee, 0px 0px 15px 0 #87022adc;
+}
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+.nav__list li a i {
+  color: var(--white-color);
+  font-size: 1.3rem;
+  padding: 10px;
+  transition: 0.3s;
+}
+.nav__list li a i:hover {
+  background-color: #8b181a;
+  border-radius: 50%;
+}
+/* Active link */
+
+/*=============== HOME ===============*/
+.home__container {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  position: relative;
+  height: 93vh;
+}
+/*===== PERFIL =====*/
+.prefil {
+  grid-column: 1;
+  grid-row: 1/3;
+  position: relative;
+  padding: 20px;
+}
+.prefil-name-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+.prefil-circle {
+  height: 40px;
+  width: 40px;
+  background-color: #8b181a;
+  border-radius: 50%;
+}
+.prefil-name {
+  font-size: var(--h2-font-size);
+  font-family: var(--second-font);
+}
+.prefil-img {
+  width: 100%;
+  height: 150px;
+  border-radius: 30px;
+}
+
+.downloadcv {
+  background-color: #000;
+  font-size: var(--h3-font-size);
+  font-family: var(--body-font);
+  color: var(--white-color);
+  font-weight: var(--font-semi-bold);
+  border-radius: 30px;
+  padding: 15px 40px;
+}
+/*===== INFO =====*/
+.info {
+  grid-column: 2/4;
+  grid-row: 1/4;
+  height: 100%;
+  position: relative;
+}
+.info img {
+  height: 100%;
+  width: 100%;
+  border-radius: 30px;
+}
+.info_card {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  border-radius: 25px;
+  border: 1px solid #a0a0a087;
+  padding: 20px;
+  background-color: #4033335b;
+  backdrop-filter: blur(12px);
+}
+.info_name {
+  font-size: var(--biggest-font-size);
+  font-family: var(--second-font);
+  font-weight: var(--font-medium);
+  margin-bottom: 20px;
+}
+.servicebtn {
+  background-color: #000 !important;
+  border: 2px solid #000 !important;
+}
+/*===== ABOUT =====*/
+.about {
+  grid-column: 4/5;
+  grid-row: 1/4;
+  padding: 20px;
+}
+.about-name {
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-medium);
+}
+.about-name span {
+  color: #b5b5b5;
+  font-family: var(--second-font);
+}
+.social-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 40px;
+}
+
+.social-box img {
+  height: 40px;
+  width: 40px;
+  margin: -10px 0px 20px 0px !important;
+  transition: 0.3s;
+}
+.social-box img:hover {
+  margin-bottom: 2px !important;
+}
+.social-box .abt-github {
+  height: 30px;
+  width: 30px;
+  margin-left: 5px !important;
+}
+.profile4 {
+  height: 200px;
+  width: 100%;
+  border-radius: 30px;
+}
+.contact-home {
+  display: block;
+  text-align: center;
+  padding: 15px;
+  font-size: var(--h3-font-size) !important;
+}
+/*===== SKILLS =====*/
+.skills {
+  grid-column: 1/2;
+  grid-row: 3/4;
+  padding: 20px 30px;
+}
+
+.skills h2 {
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-semi-bold);
+}
+.skill-box {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-auto-rows: 1fr 1fr 1fr 1fr;
+  grid-row-gap: 20px;
+}
+.skill-box img {
+  height: 20px;
+  width: 20px;
+  transition: 0.5s;
+}
+.skill-box img:hover {
+  height: 16px;
+  width: 16px;
+}
+.skills p {
+  margin-bottom: 0px !important;
+}
+
+/*=============== BUTTON ===============*/
+.button {
+  background-color: var(--first-color);
+  font-size: var(--small-font-size);
+  font-family: var(--body-font);
+  color: var(--white-color);
+  border-radius: 30px;
+  padding: 8px 40px;
+  transition: 0.5s;
+}
+.button:hover {
+  background-color: transparent !important;
+  border: 2px solid #000;
+  color: #000;
+  font-weight: var(--font-semi-bold);
+  transition: 0.5s;
+}
+/*=============== PROJECTS ===============*/
+.project-items,
+.service-items {
+  margin-top: 40px;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: auto auto auto;
+}
+.projects h1,
+.service-heading,
+.experience-heading,
+.contact-heading {
+  font-size: var(--biggest-font-size);
+  font-family: var(--second-font);
+  font-weight: var(--font-semi-bold);
+  text-align: center;
+  text-transform: uppercase;
+}
+.project-item,
+.service-item {
+  background-color: hsl(358, 2%, 10%);
+  padding: 20px;
+  border-radius: 20px;
+}
+.project-item img {
+  border-radius: 20px;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.project-item img:hover {
+  transform: scale(0.95);
+  filter: blur(1px);
+}
+.project-item h3,
+.service-item h3 {
+  margin-top: 20px;
+}
+.project-item p,
+.service-item p {
+  margin: 10px 0px;
+  color: #b5b5b5;
+}
+.tech-box {
+  display: flex;
+  gap: 8px;
+  margin: 20px 0px;
+  background-color: #000;
+  border-radius: 30px;
+  padding: 10px 20px;
+  width: 120px;
+  text-align: center;
+}
+.tech-box img {
+  height: 20px;
+}
+.project-item a {
+  display: block;
+  color: var(--white-color);
+  margin-bottom: 10px;
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-semi-bold);
+}
+.project-item i {
+  margin-right: 10px;
+}
+/*=============== SERVICES ===============*/
+.service-item {
+  padding: 60px 20px;
+}
+.service-item i {
+  font-size: 40px;
+}
+.service-item h3 {
+  margin-top: 30px;
+}
+.red-service-box {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: #8b181a;
+  margin-left: 10px;
+  margin-bottom: -30px;
+}
+/*=============== EXPERIENCE ===============*/
+.experience-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+.exp-post {
+  background-color: hsl(358, 2%, 10%);
+  padding: 20px;
+  border-radius: 30px;
+}
+/*=============== CONTACT ===============*/
+#contact-form {
+  margin: auto;
+  margin-top: 2.5rem;
+  text-align: center;
+  max-width: 500px;
+}
+.inputs,
+textarea {
+  margin-bottom: 10px;
+  width: 100%;
+}
+input {
+  width: 49.5%;
+}
+textarea,
+input {
+  padding: 10px 10px;
+  border-radius: 30px;
+  background-color: hsl(358, 2%, 10%);
+}
+textarea {
+  min-height: 180px;
+}
+.btn-sec:hover {
+  border: 2px solid #8b181a !important;
+  color: #8b181a !important;
+  cursor: pointer;
+}
+/*=============== FOOTER ===============*/
+.footer {
+  max-width: 1240px;
+  width: 100%;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+}
+.footer h1 {
+  font-family: var(--second-font);
+  font-size: var(--h1-font-size);
+  font-weight: var(--font-semi-bold);
+}
+.footer-icons{
+  display: flex;
+  gap: 20px;
+}
+.footer-icons i{
+  padding: 10px;
+  background-color: #8b181a;
+  border-radius: 50%;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.footer-icons i:hover{
+  color: #8b181a;
+  border:1px solid #fff;
+  background-color: #fff;
+ 
+}
+/*=============== SCROLL BAR ===============*/
+
+/*=============== SCROLL UP ===============*/
+
+/* Show Scroll Up */
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+
+/* For medium devices */
+
+/* For large devices */
