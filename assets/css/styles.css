@@ -126,8 +126,8 @@ img {
 
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
-  max-width: 1168px;
-  margin-inline: 4rem;
+  max-width: 1240px;
+  margin-inline: 3rem;
 }
 
 .grid {
