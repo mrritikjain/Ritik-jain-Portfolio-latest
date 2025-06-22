@@ -74,7 +74,8 @@
   margin: 0;
 }
 
-body, html {
+body,
+html {
   width: 100%;
   height: 100%;
 }
@@ -146,7 +147,6 @@ img {
   text-align: center;
   margin-bottom: 2rem;
 }
-
 
 p {
   margin-top: 20px;
@@ -241,6 +241,7 @@ p {
   grid-row: 1/4;
   height: 100%;
   position: relative;
+  opacity: 1;
 }
 .info img {
   height: 100%;
@@ -445,6 +446,7 @@ p {
   background-color: hsl(358, 2%, 10%);
   padding: 20px;
   border-radius: 30px;
+  min-width: 350px;
 }
 .working-time {
   display: inline-block;
@@ -477,6 +479,13 @@ input {
 textarea {
   min-height: 180px;
 }
+#successmsg{
+  color: green;
+  text-align: left;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 500;
+}
 .btn-sec:hover {
   border: 2px solid #8b181a !important;
   color: #8b181a !important;
@@ -501,10 +510,12 @@ textarea {
 .footer-icons {
   display: flex;
   gap: 20px;
+  
 }
 .footer-icons i {
   padding: 10px;
   background-color: #8b181a;
+  color: #fff;
   border-radius: 50%;
   transition: 0.5s;
   cursor: pointer;
@@ -562,7 +573,8 @@ textarea {
   #contact-form {
     padding: 10px;
   }
+  input{
+  width: 100%;
+  margin-bottom: 10px;
 }
-/* For medium devices */
-
-/* For large devices */
+}
